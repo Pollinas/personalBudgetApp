@@ -22,6 +22,7 @@ public:
     static char readChar();
     static string readLine();
     static string intToString (int number);
+    static string convertFirstLetterToUpperCaseTheRestToLower(string text);
 
 };
 
