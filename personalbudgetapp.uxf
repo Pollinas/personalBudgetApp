@@ -140,14 +140,20 @@
 - login : string
 - password  :  string 
 - ID : integer
+- name : string
+- lastName : string 
 -
 
 + getLogin() : string
 + getPassword() : string
 + getID() : integer
++ getName() : string
++ getLastName() : string
 + setLogin() : void
 + setPassword() : void
 + setID() : void 
++ setName() : void
++ setLastName() : void
 
 </panel_attributes>
     <additional_attributes/>
@@ -262,6 +268,7 @@
 + readChar() : static char
 + readLine() : static string
 + intToString() : static string
++ convertFirstLetterToUpperCaseTheRestToLower(): static string
 </panel_attributes>
     <additional_attributes/>
   </element>

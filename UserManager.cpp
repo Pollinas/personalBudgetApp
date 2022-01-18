@@ -22,8 +22,8 @@ User UserManager::insertNewUserData()
 
     do
     {
-        cout <<"Insert login: ";
-        cin >> login;
+        cout <<"Insert login: " << endl;
+        login = AuxiliaryMethods::readLine();
         user.setLogin(login);
 
     }
@@ -31,10 +31,22 @@ User UserManager::insertNewUserData()
     while (loginExists(user.getLogin()));
 
     string password;
-    cout << "Insert password: ";
-    cin >> password;
+    cout << "Insert password: " << endl;
+    password = AuxiliaryMethods::readLine();
 
     user.setPassword(password);
+
+    string name;
+    cout << "Insert name." << endl;
+    name = AuxiliaryMethods::readLine();
+
+    user.setName(AuxiliaryMethods::convertFirstLetterToUpperCaseTheRestToLower(name));
+
+    string lastName;
+    cout << "Insert last name." << endl;
+    lastName = AuxiliaryMethods::readLine();
+
+    user.setLastName(AuxiliaryMethods::convertFirstLetterToUpperCaseTheRestToLower(lastName));
 
     return user;
 }

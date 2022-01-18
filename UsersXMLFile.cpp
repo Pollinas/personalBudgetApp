@@ -5,6 +5,8 @@
      string ID = AuxiliaryMethods::intToString(user.getID());
      string login = user.getLogin();
      string password = user.getPassword();
+     string name = user.getName();
+     string lastName = user.getLastName();
      CMarkup xml;
 
     xml.Load(usersXMLFileName+".xml");
@@ -21,6 +23,8 @@
     xml.AddElem("UserID", ID);
     xml.AddElem("Login", login);
     xml.AddElem("Password", password);
+    xml.AddElem("Name", name);
+    xml.AddElem("LastName" , lastName);
 
     xml.Save(usersXMLFileName+".xml");
 
