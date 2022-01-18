@@ -48,7 +48,7 @@ int ExpensesXMLFile::getLastExpenseID()
 
     while ( xml.FindElem("Expense") )
 {
-    xml.FindChildElem( "Expense" );
+    xml.FindChildElem( "ExpenseID" );
     if(stoi(xml.GetChildData()) > temp)
     {
         temp = stoi(xml.GetChildData());

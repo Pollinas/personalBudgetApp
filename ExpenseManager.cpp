@@ -41,12 +41,16 @@ Expense ExpenseManager::insertNewExpenseData()
         {
             cout << "Incorrect date or date format. Insert date in yyyy-mm-dd format. " << endl;
             string temp = AuxiliaryMethods::readLine();
+
             if(AuxiliaryMethods::checkDateCorrectness(temp))
+            {
+                date = AuxiliaryMethods::dateToStoreFormat(temp);
+                expense.setDate(stoi(date));
                 break;
+            }
+
         }
 
-            date = AuxiliaryMethods::dateToStoreFormat(temp);
-            expense.setDate(stoi(date));
     }
 
 
@@ -152,10 +156,10 @@ double ExpenseManager::displayExpenseBalanceFromSelectedDates(string dateBegin,s
     double totalExpense = 0.0;
     string yearBegin = dateBegin.substr(0,4);
     string monthBegin = dateBegin.substr(5,2);
-    string dayBegin = dateBegin.substr(6,2);
+    string dayBegin = dateBegin.substr(8,2);
     string yearEnd = dateEnd.substr(0,4);
     string monthEnd = dateEnd.substr(5,2);
-    string dayEnd = dateEnd.substr(6,2);
+    string dayEnd = dateEnd.substr(8,2);
 
 
      for(int i =0; i<expenses.size(); i++)
