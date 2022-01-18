@@ -30,7 +30,7 @@ Expense ExpenseManager::insertNewExpenseData()
     cout << "Is it today's expense? Insert 'y' for yes, 'n' for no." << endl;
     choice = AuxiliaryMethods::readChar();
     if (choice == 'y')
-        expense.setDate(AuxiliaryMethods::getCurrentDate());
+       expense.setDate(stoi(AuxiliaryMethods::getCurrentDate()));
 
     else if (choice == 'n')
     {
@@ -46,7 +46,7 @@ Expense ExpenseManager::insertNewExpenseData()
         }
 
             date = AuxiliaryMethods::dateToStoreFormat(temp);
-            expense.setDate(date);
+            expense.setDate(stoi(date));
     }
 
 
@@ -70,7 +70,10 @@ double ExpenseManager::displayThisMonthExpenses()
 
      for(int i =0; i<expenses.size(); i++)
      {
-         if (expenses[i].getDate().substr(0,4) == currentYear && expenses[i].getDate().substr(4,2) == currentMonth)
+         int date = expenses[i].getDate();
+         string stringDate = to_string(date);
+
+         if (stringDate.substr(0,4) == currentYear && stringDate.substr(4,2) == currentMonth)
             thisMonthExpenses.push_back(expenses[i]);
      }
 
@@ -79,7 +82,10 @@ double ExpenseManager::displayThisMonthExpenses()
 
      for (int j =0; j<thisMonthExpenses.size(); j++)
      {
-         cout << AuxiliaryMethods::dateToDispalyFormat(thisMonthExpenses[j].getDate()) << " ";
+         int date = thisMonthExpenses[j].getDate();
+         string stringDate = to_string(date);
+
+         cout << AuxiliaryMethods::dateToDispalyFormat(stringDate) << " ";
          cout << thisMonthExpenses[j].getItem() << " ";
          cout << thisMonthExpenses[j].getAmount() << endl;
      }
@@ -114,7 +120,10 @@ double ExpenseManager::displayLastMonthExpenseBalance()
 
      for(int i =0; i<expenses.size(); i++)
      {
-         if (expenses[i].getDate().substr(0,4) == currentYear && expenses[i].getDate().substr(4,2) == lastMonth)
+         int date = expenses[i].getDate();
+         string stringDate = to_string(date);
+
+         if (stringDate == currentYear && stringDate.substr(4,2) == lastMonth)
             lastMonthExpenses.push_back(expenses[i]);
      }
 
@@ -123,7 +132,10 @@ double ExpenseManager::displayLastMonthExpenseBalance()
 
      for (int j =0; j<lastMonthExpenses.size(); j++)
      {
-         cout << AuxiliaryMethods::dateToDispalyFormat(lastMonthExpenses[j].getDate()) << " " ;
+        int date = lastMonthExpenses[j].getDate();
+         string stringDate = to_string(date);
+
+         cout << AuxiliaryMethods::dateToDispalyFormat(stringDate) << " " ;
          cout << lastMonthExpenses[j].getItem() << " ";
          cout << lastMonthExpenses[j].getAmount() << endl;
      }
@@ -148,13 +160,16 @@ double ExpenseManager::displayExpenseBalanceFromSelectedDates(string dateBegin,s
 
      for(int i =0; i<expenses.size(); i++)
      {
-        if ((expenses[i].getDate().substr(0,4) == yearBegin && expenses[i].getDate().substr(4,2) == monthBegin
-             && expenses[i].getDate().substr(6,2) >= dayBegin)
-             || (expenses[i].getDate().substr(0,4) == yearBegin && expenses[i].getDate().substr(4,2) > monthBegin)
-             || (expenses[i].getDate().substr(0,4) == yearEnd && expenses[i].getDate().substr(4,2) == monthEnd
-             && expenses[i].getDate().substr(6,2) <= dayEnd)
-             || (expenses[i].getDate().substr(0,4) == yearEnd && expenses[i].getDate().substr(4,2) < monthEnd)
-             || (expenses[i].getDate().substr(0,4) > yearBegin && expenses[i].getDate().substr(0,4) < yearEnd))
+          int date = expenses[i].getDate();
+         string stringDate = to_string(date);
+
+        if ((stringDate.substr(0,4) == yearBegin && stringDate.substr(4,2) == monthBegin
+             && stringDate.substr(6,2) >= dayBegin)
+             || (stringDate.substr(0,4) == yearBegin && stringDate.substr(4,2) > monthBegin)
+             || (stringDate.substr(0,4) == yearEnd && stringDate.substr(4,2) == monthEnd
+             && stringDate.substr(6,2) <= dayEnd)
+             || (stringDate.substr(0,4) == yearEnd && stringDate.substr(4,2) < monthEnd)
+             || (stringDate.substr(0,4) > yearBegin && stringDate.substr(0,4) < yearEnd))
 
              expensesTemp.push_back(expenses[i]);
      }
@@ -165,7 +180,11 @@ double ExpenseManager::displayExpenseBalanceFromSelectedDates(string dateBegin,s
 
      for (int j =0; j < expensesTemp.size(); j++)
      {
-         cout << AuxiliaryMethods::dateToDispalyFormat(expensesTemp[j].getDate()) << " ";
+
+        int date = expensesTemp[j].getDate();
+         string stringDate = to_string(date);
+
+         cout << AuxiliaryMethods::dateToDispalyFormat(stringDate) << " ";
          cout << expensesTemp[j].getItem() << " ";
          cout << expensesTemp[j].getAmount() << endl;
      }

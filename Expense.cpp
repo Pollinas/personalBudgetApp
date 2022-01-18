@@ -1,7 +1,7 @@
 #include "Expense.h"
 
 
-void Expense::setDate(string newDate)
+void Expense::setDate(int newDate)
 {
     date = newDate;
 }
@@ -28,7 +28,7 @@ void Expense::setAmount(double newAmount)
     amount = newAmount;
 }
 
-string Expense::getDate()
+int Expense::getDate()
 {
     return date;
 }

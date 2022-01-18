@@ -4,7 +4,7 @@ void IncomesXMLFile::addIncomeToXMLFile(Income income)
 {
     string incomeID = AuxiliaryMethods::intToString(income.getIncomeID());
     string userID = AuxiliaryMethods::intToString(income.getUserID());
-    string date = AuxiliaryMethods::dateToDispalyFormat(income.getDate());
+    string date = AuxiliaryMethods::dateToDispalyFormat(to_string(income.getDate()));
     string item = income.getItem();
     string amount = to_string(income.getAmount());
     CMarkup xml;
@@ -106,7 +106,7 @@ vector <Income> IncomesXMLFile::loadIncomesFromXMLFile()
 
         income.setIncomeID(incomeID);
         income.setUserID(userID);
-        income.setDate(AuxiliaryMethods::dateToStoreFormat(date));
+        income.setDate(stoi(AuxiliaryMethods::dateToStoreFormat(date)));
         income.setItem(item);
         income.setAmount(amount);
         incomes.push_back(income);

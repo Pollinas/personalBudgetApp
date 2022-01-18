@@ -69,14 +69,14 @@
     </coordinates>
     <panel_attributes>Income
 -
-- date : string
+- date : integer
 - incomeID : integer
 - userID: integer
 - item : string
 - amount : double
 -
 + Income()
-+ getDate() : string
++ getDate() : integer
 + getIncomeID() : integer
 + getItem() : string
 + getUserID() : integer
@@ -200,14 +200,14 @@
     </coordinates>
     <panel_attributes>Expense
 -
-- date : string
+- date : integer
 - expenseID : integer
 - userID : integer
 - item : string
 - amount : double
 -
 + Expense()
-+ getDate() : string
++ getDate() : integer
 + getExpenseID() : integer
 + getItem() : string
 + getUserID() : integer

@@ -30,7 +30,7 @@ Income IncomeManager::insertNewIncomeData()
     cout << "Is it today's income? Insert 'y' for yes, 'n' for no." << endl;
     choice = AuxiliaryMethods::readChar();
     if (choice == 'y')
-        income.setDate(AuxiliaryMethods::getCurrentDate());
+        income.setDate(stoi(AuxiliaryMethods::getCurrentDate()));
 
     else if (choice == 'n')
     {
@@ -47,7 +47,7 @@ Income IncomeManager::insertNewIncomeData()
         }
 
             date = AuxiliaryMethods::dateToStoreFormat(temp);
-            income.setDate(date);
+            income.setDate(stoi(date));
     }
 
     cout << "Insert item.(e.g. salary, Bitcoin income, rental)" << endl;
@@ -82,7 +82,10 @@ double IncomeManager::displayThisMonthIncomes()
 
      for(int i =0; i<incomes.size(); i++)
      {
-         if (incomes[i].getDate().substr(0,4) == currentYear && incomes[i].getDate().substr(4,2) == currentMonth)
+         int date = incomes[i].getDate();
+         string stringDate = to_string(date);
+         if (stringDate.substr(0,4) == currentYear && stringDate.substr(4,2) == currentMonth)
+
             thisMonthIncomes.push_back(incomes[i]);
      }
 
@@ -91,7 +94,10 @@ double IncomeManager::displayThisMonthIncomes()
 
      for (int j =0; j<thisMonthIncomes.size(); j++)
      {
-         cout << AuxiliaryMethods::dateToDispalyFormat(thisMonthIncomes[j].getDate()) << " ";
+         int date = thisMonthIncomes[j].getDate();
+         string stringDate = to_string(date);
+
+         cout << AuxiliaryMethods::dateToDispalyFormat(stringDate) << " ";
          cout << thisMonthIncomes[j].getItem() << " ";
          cout << thisMonthIncomes[j].getAmount() << endl;
      }
@@ -124,7 +130,9 @@ double IncomeManager::displayLastMonthIncomeBalance()
 
      for(int i =0; i<incomes.size(); i++)
      {
-         if (incomes[i].getDate().substr(0,4) == currentYear && incomes[i].getDate().substr(4,2) == lastMonth)
+         int date = incomes[i].getDate();
+         string stringDate = to_string(date);
+         if (stringDate.substr(0,4) == currentYear && stringDate.substr(4,2) == lastMonth)
             lastMonthIncomes.push_back(incomes[i]);
      }
 
@@ -133,7 +141,10 @@ double IncomeManager::displayLastMonthIncomeBalance()
 
      for (int j =0; j<lastMonthIncomes.size(); j++)
      {
-         cout << AuxiliaryMethods::dateToDispalyFormat(lastMonthIncomes[j].getDate()) << " ";
+        int date = lastMonthIncomes[j].getDate();
+         string stringDate = to_string(date);
+
+         cout << AuxiliaryMethods::dateToDispalyFormat(stringDate) << " ";
          cout << lastMonthIncomes[j].getItem() << " ";
          cout << lastMonthIncomes[j].getAmount() << endl;
      }
@@ -158,13 +169,16 @@ double IncomeManager::displayIncomeBalanceFromSelectedDates(string dateBegin, st
 
      for(int i =0; i<incomes.size(); i++)
      {
-         if ((incomes[i].getDate().substr(0,4) == yearBegin && incomes[i].getDate().substr(4,2) == monthBegin
-             && incomes[i].getDate().substr(6,2) >= dayBegin)
-             || (incomes[i].getDate().substr(0,4) == yearBegin && incomes[i].getDate().substr(4,2) > monthBegin)
-             || (incomes[i].getDate().substr(0,4) == yearEnd && incomes[i].getDate().substr(4,2) == monthEnd
-             && incomes[i].getDate().substr(6,2) <= dayEnd)
-             || (incomes[i].getDate().substr(0,4) == yearEnd && incomes[i].getDate().substr(4,2) < monthEnd)
-             || (incomes[i].getDate().substr(0,4) > yearBegin && incomes[i].getDate().substr(0,4) < yearEnd))
+         int date = incomes[i].getDate();
+         string stringDate = to_string(date);
+
+         if ((stringDate.substr(0,4) == yearBegin && stringDate.substr(4,2) == monthBegin
+             && stringDate.substr(6,2) >= dayBegin)
+             || (stringDate.substr(0,4) == yearBegin && stringDate.substr(4,2) > monthBegin)
+             || (stringDate.substr(0,4) == yearEnd && stringDate.substr(4,2) == monthEnd
+             && stringDate.substr(6,2) <= dayEnd)
+             || (stringDate.substr(0,4) == yearEnd && stringDate.substr(4,2) < monthEnd)
+             || (stringDate.substr(0,4) > yearBegin && stringDate.substr(0,4) < yearEnd))
 
              incomesTemp.push_back(incomes[i]);
      }
@@ -174,7 +188,10 @@ double IncomeManager::displayIncomeBalanceFromSelectedDates(string dateBegin, st
 
      for (int j =0; j<incomesTemp.size(); j++)
      {
-         cout << AuxiliaryMethods::dateToDispalyFormat(incomesTemp[j].getDate()) << " " ;
+         int date = incomesTemp[j].getDate();
+         string stringDate = to_string(date);
+
+         cout << AuxiliaryMethods::dateToDispalyFormat(stringDate) << " " ;
          cout << incomesTemp[j].getItem() << " ";
          cout << incomesTemp[j].getAmount() << endl;
      }
