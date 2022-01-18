@@ -1,0 +1,154 @@
+<map version="1.0.1">
+<!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
+<node CREATED="1642111838118" ID="ID_1476246743" MODIFIED="1642113359256" TEXT="PersonalBudgetApp">
+<node CREATED="1642112155373" HGAP="58" ID="ID_592920450" MODIFIED="1642114243212" POSITION="right" TEXT="1. SignUp" VSHIFT="-7">
+<node CREATED="1642112295424" ID="ID_481893705" MODIFIED="1642114254331" TEXT="Insert  login">
+<node CREATED="1642114156656" ID="ID_1429437474" MODIFIED="1642114163132" TEXT="Does this login exist?">
+<node CREATED="1642114164575" ID="ID_1236976552" MODIFIED="1642114167515" TEXT="Yes.">
+<node CREATED="1642114169280" ID="ID_1296739261" MODIFIED="1642114189537" TEXT="info: &quot;Choose another login. &quot;">
+<node CREATED="1642163069577" ID="ID_1825506531" MODIFIED="1642163077752" TEXT="back to insert login"/>
+</node>
+</node>
+<node CREATED="1642114193727" ID="ID_57856626" MODIFIED="1642114197086" TEXT="No.">
+<node CREATED="1642114200094" ID="ID_654464984" MODIFIED="1642114220474" TEXT="Insert  password.">
+<node CREATED="1642114222272" ID="ID_666948729" MODIFIED="1642343077523" TEXT="info: &quot;Account created.&quot;">
+<node CREATED="1642163053689" ID="ID_1637553934" MODIFIED="1642163058657" TEXT="back to main menu "/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1642112221309" ID="ID_1194197740" MODIFIED="1642112241668" POSITION="right" TEXT="2. Log in ">
+<node CREATED="1642112417087" ID="ID_956466138" MODIFIED="1642114458356" TEXT="Insert login">
+<node CREATED="1642112429918" ID="ID_213392889" MODIFIED="1642112435122" TEXT="Insert password">
+<node CREATED="1642112437486" ID="ID_532014643" MODIFIED="1642163124518" TEXT="Login and password correct. - &gt; displays user&apos;s menu ">
+<node CREATED="1642112491070" ID="ID_523210153" MODIFIED="1642112942412" TEXT="1. Add income">
+<node CREATED="1642112612846" ID="ID_1459516078" MODIFIED="1642113635233" TEXT="Is it today&apos;s income ?">
+<node CREATED="1642113718015" ID="ID_364988435" MODIFIED="1642114002347" TEXT="Yes.">
+<node CREATED="1642114708848" ID="ID_1272444545" MODIFIED="1642114763262" TEXT="Insert item. (examples)">
+<node CREATED="1642114725217" ID="ID_1288573823" MODIFIED="1642114733060" TEXT="Insert amount.">
+<node CREATED="1642114734880" ID="ID_167138779" MODIFIED="1642114902062" TEXT="info: &quot;The income has been added to your personal budget.&quot;">
+<node CREATED="1642163212120" ID="ID_1453709727" MODIFIED="1642163217231" TEXT="back to user&apos;s menu "/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1642113723855" ID="ID_1517309372" MODIFIED="1642113730309" TEXT="No.">
+<node CREATED="1642113730991" ID="ID_821907866" MODIFIED="1642282273577" TEXT="Insert date of the income in format : yyyy-mm-dd">
+<node CREATED="1642162577145" ID="ID_1844653839" MODIFIED="1642162697001" TEXT="Is the date a correct date in the past? (or in correct format)">
+<node CREATED="1642162611240" ID="ID_1138169525" MODIFIED="1642162617489" TEXT="yes">
+<node CREATED="1642162707894" ID="ID_867828803" MODIFIED="1642162726043" TEXT="continue asking for other income details."/>
+</node>
+<node CREATED="1642162619095" ID="ID_76151052" MODIFIED="1642162622829" TEXT="no">
+<node CREATED="1642162623303" ID="ID_1180723210" MODIFIED="1642162651742" TEXT="info: &quot;Please insert correct date.&quot;"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1642112525229" ID="ID_1125081708" MODIFIED="1642112946926" TEXT="2. Add expense">
+<node CREATED="1642113453039" ID="ID_1109741605" MODIFIED="1642113637455" TEXT="Is it today&apos;s expense?">
+<node CREATED="1642114045392" ID="ID_1913959213" MODIFIED="1642114047324" TEXT="Yes">
+<node CREATED="1642114805873" ID="ID_1112035551" MODIFIED="1642114948543" TEXT="Insert item.">
+<node CREATED="1642114817137" ID="ID_295333827" MODIFIED="1642114822995" TEXT="Insert amount. ">
+<node CREATED="1642114824289" ID="ID_1514253608" MODIFIED="1642114878365" TEXT="info: &quot;The expense has been added to your personal budget.&quot;">
+<node CREATED="1642163167241" ID="ID_363112663" MODIFIED="1642163174061" TEXT="back to user&apos;s menu "/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1642114049375" ID="ID_1715772627" MODIFIED="1642114055168" TEXT="No. ">
+<node CREATED="1642114056912" ID="ID_1103132586" MODIFIED="1642282331803" TEXT="Insert date of the expense in format : yyyy-mm-dd">
+<node CREATED="1642162577145" ID="ID_499132665" MODIFIED="1642162697001" TEXT="Is the date a correct date in the past? (or in correct format)">
+<node CREATED="1642162611240" ID="ID_620822668" MODIFIED="1642162617489" TEXT="yes">
+<node CREATED="1642162707894" ID="ID_1683563921" MODIFIED="1642162803208" TEXT="continue asking for other expense  details."/>
+</node>
+<node CREATED="1642162619095" ID="ID_1428533853" MODIFIED="1642162622829" TEXT="no">
+<node CREATED="1642162623303" ID="ID_1115634916" MODIFIED="1642162651742" TEXT="info: &quot;Please insert correct date.&quot;"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1642112532557" ID="ID_621143631" MODIFIED="1642112952338" TEXT="3. Display this month&apos;s balance.">
+<node CREATED="1642113237472" ID="ID_224364290" MODIFIED="1642162983919" TEXT="displays: all this month&apos;s incomes">
+<node CREATED="1642113263295" ID="ID_1863599686" MODIFIED="1642162999182" TEXT="displays: all this month&apos;s expenses">
+<node CREATED="1642113292287" ID="ID_1999234778" MODIFIED="1642113294967" TEXT="displays: sum of incomes ">
+<node CREATED="1642113296607" ID="ID_1131372823" MODIFIED="1642113304042" TEXT="displays: sum of expenses">
+<node CREATED="1642113334255" ID="ID_700783680" MODIFIED="1642113336786" TEXT="displays: difference between sum of incomes and sum of expenses ">
+<node CREATED="1642163260905" ID="ID_1821925135" MODIFIED="1642163287084" TEXT="back to user&apos;s menu"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1642112549661" ID="ID_313772756" MODIFIED="1642112956618" TEXT="4. Display last month&apos;s balance. ">
+<node CREATED="1642113246207" ID="ID_1198947247" MODIFIED="1642162946462" TEXT="displays: all last month&apos;s incomes">
+<node CREATED="1642113267823" ID="ID_1182286619" MODIFIED="1642162965245" TEXT="displays: all last month&apos;s expenses ">
+<node CREATED="1642113306479" ID="ID_1553343112" MODIFIED="1642113311137" TEXT="displays: sum of incomes ">
+<node CREATED="1642113311854" ID="ID_520038918" MODIFIED="1642113318247" TEXT="displays: sum of expenses">
+<node CREATED="1642113344174" ID="ID_864722634" MODIFIED="1642113346457" TEXT="displays: difference between sum of incomes and sum of expenses ">
+<node CREATED="1642163272952" ID="ID_1787526280" MODIFIED="1642163279124" TEXT="back to user&apos;s menu"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1642112558717" ID="ID_1608647241" MODIFIED="1642341222322" TEXT="5. Display balance from selected dates. ">
+<node CREATED="1642112993246" ID="ID_277156137" MODIFIED="1642282391332" TEXT="insert  begin date in format yyyy-mm-dd">
+<node CREATED="1642162577145" ID="ID_262819319" MODIFIED="1642282429368" TEXT="Is the date a correct date in the past? ">
+<node CREATED="1642162611240" ID="ID_553226236" MODIFIED="1642162617489" TEXT="yes">
+<node CREATED="1642162707894" ID="ID_1824159598" MODIFIED="1642282409943" TEXT="insert end date in format yyyy-mm-dd">
+<node CREATED="1642162577145" ID="ID_480133161" MODIFIED="1642282437325" TEXT="Is the date a correct date in the past? ">
+<node CREATED="1642162611240" ID="ID_1494528695" MODIFIED="1642162617489" TEXT="yes">
+<node CREATED="1642113246207" ID="ID_1770524954" MODIFIED="1642163018886" TEXT="displays: all incomes from given time">
+<node CREATED="1642113267823" ID="ID_1806388645" MODIFIED="1642113271254" TEXT="displays: all expenses from given time ">
+<node CREATED="1642113306479" ID="ID_10420373" MODIFIED="1642113311137" TEXT="displays: sum of incomes ">
+<node CREATED="1642113311854" ID="ID_1615565170" MODIFIED="1642113318247" TEXT="displays: sum of expenses">
+<node CREATED="1642113344174" ID="ID_1558375091" MODIFIED="1642113346457" TEXT="displays: difference between sum of incomes and sum of expenses ">
+<node CREATED="1642163292105" ID="ID_695479516" MODIFIED="1642163296916" TEXT="back to user&apos;s menu "/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1642162619095" ID="ID_179128763" MODIFIED="1642162622829" TEXT="no">
+<node CREATED="1642162623303" ID="ID_156413129" MODIFIED="1642162651742" TEXT="info: &quot;Please insert correct date.&quot;"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1642162619095" ID="ID_1214488232" MODIFIED="1642162622829" TEXT="no">
+<node CREATED="1642162623303" ID="ID_1783574540" MODIFIED="1642162651742" TEXT="info: &quot;Please insert correct date.&quot;"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1642112574989" ID="ID_1078421063" MODIFIED="1642112965513" TEXT="6. Change password.">
+<node CREATED="1642112882303" ID="ID_782554140" MODIFIED="1642112890542" TEXT="insert new password.">
+<node CREATED="1642112890542" ID="ID_1039384056" MODIFIED="1642112904806" TEXT="info: &quot;Password has been changed.&quot;">
+<node CREATED="1642163099848" ID="ID_1664829393" MODIFIED="1642163111581" TEXT="back to user&apos;s menu"/>
+</node>
+</node>
+</node>
+<node CREATED="1642112585501" ID="ID_443313939" MODIFIED="1642112970011" TEXT="7. Log out.">
+<node CREATED="1642113372399" ID="ID_635712942" MODIFIED="1642113408223" TEXT="info:  &quot;You have been logged out.&quot;">
+<node CREATED="1642163092904" ID="ID_135407417" MODIFIED="1642163097372" TEXT="back to main menu"/>
+</node>
+</node>
+</node>
+<node CREATED="1642112474430" ID="ID_1978815851" MODIFIED="1642112486974" TEXT="Login and password incorrect. ">
+<node CREATED="1642114499184" ID="ID_251678446" MODIFIED="1642114658138" TEXT="info : &quot;Incorrect login or password. Try again. &quot;"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1642112228605" ID="ID_149518317" MODIFIED="1642112246361" POSITION="right" TEXT="9. Exit"/>
+</node>
+</map>
