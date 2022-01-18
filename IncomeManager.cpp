@@ -23,6 +23,7 @@ Income IncomeManager::insertNewIncomeData()
    string amount = "";
    string date = "";
    char choice;
+   string temp = "";
 
     income.setIncomeID(incomesXMLFile.getLastIncomeID() + 1);
     income.setUserID(LOGGED_USER_ID);
@@ -37,27 +38,35 @@ Income IncomeManager::insertNewIncomeData()
         cout << "Insert date in yyyy-mm-dd format. " << endl;
         string temp = AuxiliaryMethods::readLine();
 
+        if (AuxiliaryMethods::checkDateCorrectness(temp))
+            {
+             date = AuxiliaryMethods::dateToStoreFormat(temp);
+             income.setDate(stoi(date));
+            }
+
         while (AuxiliaryMethods::checkDateCorrectness(temp) == false)
         {
             cout << "Incorrect date or date format. Insert date in yyyy-mm-dd format. " << endl;
-            string temp = AuxiliaryMethods::readLine();
+            temp = AuxiliaryMethods::readLine();
 
             if (AuxiliaryMethods::checkDateCorrectness(temp))
             {
                     date = AuxiliaryMethods::dateToStoreFormat(temp);
                     income.setDate(stoi(date));
-                     break;
+                    break;
             }
         }
     }
+
+    temp = "";
 
     cout << "Insert item.(e.g. salary, Bitcoin income, rental)" << endl;
     income.setItem(AuxiliaryMethods::readLine());
 
     cout << "Insert amount." << endl;
-    amount = AuxiliaryMethods::readLine();
-    string temp = AuxiliaryMethods::commaToDot(amount);
-    income.setAmount(stod(temp));
+    temp = AuxiliaryMethods::readLine();
+    amount = AuxiliaryMethods::commaToDot(temp);
+    income.setAmount(stod(amount));
 
     return income;
 }
@@ -83,11 +92,15 @@ double IncomeManager::displayThisMonthIncomes()
 
      for(int i =0; i<incomes.size(); i++)
      {
-         int date = incomes[i].getDate();
-         string stringDate = to_string(date);
-         if (stringDate.substr(0,4) == currentYear && stringDate.substr(4,2) == currentMonth)
+         if(incomes[i].getUserID() == LOGGED_USER_ID)
+         {
+            int date = incomes[i].getDate();
+            string stringDate = to_string(date);
+            if (stringDate.substr(0,4) == currentYear && stringDate.substr(4,2) == currentMonth)
 
             thisMonthIncomes.push_back(incomes[i]);
+         }
+
      }
 
      sort(thisMonthIncomes.begin(), thisMonthIncomes.end());
@@ -131,10 +144,14 @@ double IncomeManager::displayLastMonthIncomeBalance()
 
      for(int i =0; i<incomes.size(); i++)
      {
-         int date = incomes[i].getDate();
-         string stringDate = to_string(date);
-         if (stringDate.substr(0,4) == currentYear && stringDate.substr(4,2) == lastMonth)
+         if(incomes[i].getUserID() == LOGGED_USER_ID)
+         {
+            int date = incomes[i].getDate();
+            string stringDate = to_string(date);
+            if (stringDate.substr(0,4) == currentYear && stringDate.substr(4,2) == lastMonth)
             lastMonthIncomes.push_back(incomes[i]);
+         }
+
      }
 
      sort(lastMonthIncomes.begin(), lastMonthIncomes.end());
@@ -170,10 +187,12 @@ double IncomeManager::displayIncomeBalanceFromSelectedDates(string dateBegin, st
 
      for(int i =0; i<incomes.size(); i++)
      {
-         int date = incomes[i].getDate();
-         string stringDate = to_string(date);
+         if(incomes[i].getUserID() == LOGGED_USER_ID)
+         {
+                int date = incomes[i].getDate();
+            string stringDate = to_string(date);
 
-         if ((stoi(stringDate.substr(0,4)) == stoi(yearBegin) && stoi(stringDate.substr(4,2)) == stoi(monthBegin)
+            if ((stoi(stringDate.substr(0,4)) == stoi(yearBegin) && stoi(stringDate.substr(4,2)) == stoi(monthBegin)
              && stoi(stringDate.substr(6,2)) >= stoi(dayBegin))
              || (stoi(stringDate.substr(0,4)) == stoi(yearBegin) && stoi(stringDate.substr(4,2)) > stoi(monthBegin))
              || (stoi(stringDate.substr(0,4)) == stoi(yearEnd) && stoi(stringDate.substr(4,2)) == stoi(monthEnd)
@@ -184,6 +203,8 @@ double IncomeManager::displayIncomeBalanceFromSelectedDates(string dateBegin, st
              incomesTemp.push_back(incomes[i]);
              date =0;
              stringDate="";
+         }
+
      }
 
      sort(incomesTemp.begin(), incomesTemp.end());

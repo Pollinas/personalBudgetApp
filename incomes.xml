@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Incomes>
+<Income>
+<IncomeID>1</IncomeID>
+<UserID>1</UserID>
+<Date>2022-01-18</Date>
+<Item>salary</Item>
+<Amount>200.000000</Amount>
+</Income>
+<Income>
+<IncomeID>2</IncomeID>
+<UserID>1</UserID>
+<Date>2022-01-18</Date>
+<Item>Bitcoin income </Item>
+<Amount>300.900000</Amount>
+</Income>
+<Income>
+<IncomeID>3</IncomeID>
+<UserID>1</UserID>
+<Date>2021-11-10</Date>
+<Item>rental</Item>
+<Amount>800.000000</Amount>
+</Income>
+</Incomes>
