@@ -176,10 +176,12 @@ void PersonalBudget::displayThisMonthBalance()
     {
         double incomesSum = 0.0;
         double expensesSum = 0.0;
+        cout << endl;
         incomesSum = incomeManager-> displayThisMonthIncomes();
+        cout <<endl;
         expensesSum = expenseManager->displayThisMonthExpenses();
-
-        cout << "This month balance: " << (incomesSum-expensesSum) << endl;
+        cout << endl;
+        cout << endl <<  "This month balance: " << (incomesSum-expensesSum) << endl;
         system("pause");
     }
     else
@@ -197,10 +199,13 @@ void PersonalBudget::displayLastMonthBalance()
     {
         double incomesSum = 0.0;
         double expensesSum = 0.0;
-        incomesSum = incomeManager-> displayLastMonthIncomeBalance();
-        expensesSum = expenseManager->displayLastMonthExpenseBalance();
 
-        cout << "Last month balance: " << (incomesSum-expensesSum) << endl;
+        cout << endl;
+        incomesSum = incomeManager-> displayLastMonthIncomeBalance();
+        cout << endl;
+        expensesSum = expenseManager->displayLastMonthExpenseBalance();
+        cout << endl;
+        cout << endl << "Last month balance: " << (incomesSum-expensesSum) << endl;
         system("pause");
     }
     else
@@ -221,6 +226,10 @@ void PersonalBudget::displayBalanceFromSelectedTime()
 
         cout << "Insert beginning date in yyyy-mm-dd format. " << endl;
         temp = AuxiliaryMethods::readLine();
+         if (AuxiliaryMethods::checkDateCorrectness(temp))
+            {
+             dateBegin = temp;
+            }
 
         while (AuxiliaryMethods::checkDateCorrectness(temp) == false)
         {
@@ -238,6 +247,12 @@ void PersonalBudget::displayBalanceFromSelectedTime()
         cout << "Insert ending date in yyyy-mm-dd format. " << endl;
         temp = AuxiliaryMethods::readLine();
 
+        if (AuxiliaryMethods::checkDateCorrectness(temp))
+            {
+             dateEnd = temp;
+            }
+
+
          while (AuxiliaryMethods::checkDateCorrectness(temp) == false)
         {
             cout << "Incorrect date or date format. Insert date in yyyy-mm-dd format. " << endl;
@@ -252,10 +267,13 @@ void PersonalBudget::displayBalanceFromSelectedTime()
 
         double incomesSum = 0.0;
         double expensesSum = 0.0;
-        incomesSum = incomeManager-> displayIncomeBalanceFromSelectedDates(dateBegin, dateEnd);
-        expensesSum = expenseManager-> displayExpenseBalanceFromSelectedDates(dateBegin, dateEnd);
 
-        cout << "Balance from " << dateBegin << " to " << dateEnd << " : " << (incomesSum-expensesSum) << endl;
+        cout<<endl;
+        incomesSum = incomeManager-> displayIncomeBalanceFromSelectedDates(dateBegin, dateEnd);
+        cout << endl;
+        expensesSum = expenseManager-> displayExpenseBalanceFromSelectedDates(dateBegin, dateEnd);
+        cout << endl;
+        cout << endl << "Balance from " << dateBegin << " to " << dateEnd << " : " << (incomesSum-expensesSum) << endl;
         system("pause");
     }
     else

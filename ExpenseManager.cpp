@@ -37,6 +37,12 @@ Expense ExpenseManager::insertNewExpenseData()
         cout << "Insert date in yyyy-mm-dd format. " << endl;
         string temp = AuxiliaryMethods::readLine();
 
+         if (AuxiliaryMethods::checkDateCorrectness(temp))
+            {
+             date = AuxiliaryMethods::dateToStoreFormat(temp);
+             expense.setDate(stoi(date));
+            }
+
            while (AuxiliaryMethods::checkDateCorrectness(temp) == false)
         {
             cout << "Incorrect date or date format. Insert date in yyyy-mm-dd format. " << endl;
@@ -74,11 +80,15 @@ double ExpenseManager::displayThisMonthExpenses()
 
      for(int i =0; i<expenses.size(); i++)
      {
-         int date = expenses[i].getDate();
-         string stringDate = to_string(date);
+         if(expenses[i].getUserID() == LOGGED_USER_ID)
+         {
+              int date = expenses[i].getDate();
+            string stringDate = to_string(date);
 
-         if (stringDate.substr(0,4) == currentYear && stringDate.substr(4,2) == currentMonth)
+            if (stringDate.substr(0,4) == currentYear && stringDate.substr(4,2) == currentMonth)
             thisMonthExpenses.push_back(expenses[i]);
+         }
+
      }
 
      sort(thisMonthExpenses.begin(), thisMonthExpenses.end());
@@ -124,11 +134,14 @@ double ExpenseManager::displayLastMonthExpenseBalance()
 
      for(int i =0; i<expenses.size(); i++)
      {
-         int date = expenses[i].getDate();
-         string stringDate = to_string(date);
+          if(expenses[i].getUserID() == LOGGED_USER_ID)
+          {
+            int date = expenses[i].getDate();
+            string stringDate = to_string(date);
 
-         if (stringDate == currentYear && stringDate.substr(4,2) == lastMonth)
+            if (stringDate == currentYear && stringDate.substr(4,2) == lastMonth)
             lastMonthExpenses.push_back(expenses[i]);
+          }
      }
 
      sort(lastMonthExpenses.begin(), lastMonthExpenses.end());
@@ -164,10 +177,12 @@ double ExpenseManager::displayExpenseBalanceFromSelectedDates(string dateBegin,s
 
      for(int i =0; i<expenses.size(); i++)
      {
-          int date = expenses[i].getDate();
-         string stringDate = to_string(date);
+         if(expenses[i].getUserID() == LOGGED_USER_ID)
+         {
+             int date = expenses[i].getDate();
+            string stringDate = to_string(date);
 
-        if ((stringDate.substr(0,4) == yearBegin && stringDate.substr(4,2) == monthBegin
+            if ((stringDate.substr(0,4) == yearBegin && stringDate.substr(4,2) == monthBegin
              && stringDate.substr(6,2) >= dayBegin)
              || (stringDate.substr(0,4) == yearBegin && stringDate.substr(4,2) > monthBegin)
              || (stringDate.substr(0,4) == yearEnd && stringDate.substr(4,2) == monthEnd
@@ -176,6 +191,8 @@ double ExpenseManager::displayExpenseBalanceFromSelectedDates(string dateBegin,s
              || (stringDate.substr(0,4) > yearBegin && stringDate.substr(0,4) < yearEnd))
 
              expensesTemp.push_back(expenses[i]);
+         }
+
      }
 
 
