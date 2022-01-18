@@ -7,6 +7,8 @@ void IncomesXMLFile::addIncomeToXMLFile(Income income)
     string date = AuxiliaryMethods::dateToDispalyFormat(to_string(income.getDate()));
     string item = income.getItem();
     string amount = to_string(income.getAmount());
+    amount.erase ( amount.find_last_not_of('0') + 1, string::npos );
+
     CMarkup xml;
 
     xml.Load(incomesXMLFileName+".xml");

@@ -8,6 +8,7 @@ void ExpensesXMLFile::addExpenseToXMLFile(Expense expense)
      string date = AuxiliaryMethods::dateToDispalyFormat(to_string(expense.getDate()));
      string item = expense.getItem();
      string amount = to_string(expense.getAmount());
+     amount.erase ( amount.find_last_not_of('0') + 1, string::npos );
      CMarkup xml;
 
     xml.Load(expensesXMLFileName+".xml");
