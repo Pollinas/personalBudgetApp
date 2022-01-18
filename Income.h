@@ -6,7 +6,7 @@ using namespace std;
 
 class Income
 {
-    string date;
+    int date;
     int incomeID;
     int userID;
     string item;
@@ -14,7 +14,7 @@ class Income
 
 public:
 
-    Income(string date="", int incomeID =0, int userID=0, string item="", double amount = 0)
+    Income(int date = 0, int incomeID =0, int userID=0, string item="", double amount = 0)
     {
         this->date = date;
         this->incomeID = incomeID;
@@ -28,13 +28,13 @@ public:
         return (date < str.date);
     }
 
-    void setDate(string newDate);
+    void setDate(int newDate);
     void setIncomeID(int newIncomeID);
     void setUserID(int newUserID);
     void setItem(string newItem);
     void setAmount(double newAmount);
 
-    string getDate();
+    int getDate();
     int getIncomeID();
     int getUserID();
     string getItem();

@@ -5,7 +5,7 @@ void ExpensesXMLFile::addExpenseToXMLFile(Expense expense)
 {
     string expenseID = AuxiliaryMethods::intToString(expense.getExpenseID());
      string userID = AuxiliaryMethods::intToString(expense.getUserID());
-     string date = AuxiliaryMethods::dateToDispalyFormat(expense.getDate());
+     string date = AuxiliaryMethods::dateToDispalyFormat(to_string(expense.getDate()));
      string item = expense.getItem();
      string amount = to_string(expense.getAmount());
      CMarkup xml;
@@ -105,7 +105,7 @@ vector <Expense> ExpensesXMLFile::loadExpensesFromXMLFile()
 
      expense.setExpenseID(expenseID);
      expense.setUserID(userID);
-     expense.setDate(AuxiliaryMethods::dateToStoreFormat(date));
+     expense.setDate(stoi(AuxiliaryMethods::dateToStoreFormat(date)));
      expense.setItem(item);
      expense.setAmount(amount);
      expenses.push_back(expense);

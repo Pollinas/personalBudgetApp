@@ -1,6 +1,6 @@
 #include "Income.h"
 
-void Income::setDate(string newDate)
+void Income::setDate(int newDate)
 {
     date = newDate;
 }
@@ -27,7 +27,7 @@ void Income::setAmount(double newAmount)
     amount = newAmount;
 }
 
-string Income::getDate()
+int Income::getDate()
 {
     return date;
 }
