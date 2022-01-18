@@ -43,11 +43,12 @@ Income IncomeManager::insertNewIncomeData()
             string temp = AuxiliaryMethods::readLine();
 
             if (AuxiliaryMethods::checkDateCorrectness(temp))
-                break;
+            {
+                    date = AuxiliaryMethods::dateToStoreFormat(temp);
+                    income.setDate(stoi(date));
+                     break;
+            }
         }
-
-            date = AuxiliaryMethods::dateToStoreFormat(temp);
-            income.setDate(stoi(date));
     }
 
     cout << "Insert item.(e.g. salary, Bitcoin income, rental)" << endl;
@@ -163,8 +164,8 @@ double IncomeManager::displayIncomeBalanceFromSelectedDates(string dateBegin, st
     string monthBegin = dateBegin.substr(5,2);
     string dayBegin = dateBegin.substr(8,2);
     string yearEnd = dateEnd.substr(0,4);
-    string monthEnd = dateEnd.substr(4,2);
-    string dayEnd = dateEnd.substr(6,2);
+    string monthEnd = dateEnd.substr(5,2);
+    string dayEnd = dateEnd.substr(8,2);
 
 
      for(int i =0; i<incomes.size(); i++)
@@ -172,15 +173,17 @@ double IncomeManager::displayIncomeBalanceFromSelectedDates(string dateBegin, st
          int date = incomes[i].getDate();
          string stringDate = to_string(date);
 
-         if ((stringDate.substr(0,4) == yearBegin && stringDate.substr(4,2) == monthBegin
-             && stringDate.substr(6,2) >= dayBegin)
-             || (stringDate.substr(0,4) == yearBegin && stringDate.substr(4,2) > monthBegin)
-             || (stringDate.substr(0,4) == yearEnd && stringDate.substr(4,2) == monthEnd
-             && stringDate.substr(6,2) <= dayEnd)
-             || (stringDate.substr(0,4) == yearEnd && stringDate.substr(4,2) < monthEnd)
-             || (stringDate.substr(0,4) > yearBegin && stringDate.substr(0,4) < yearEnd))
+         if ((stoi(stringDate.substr(0,4)) == stoi(yearBegin) && stoi(stringDate.substr(4,2)) == stoi(monthBegin)
+             && stoi(stringDate.substr(6,2)) >= stoi(dayBegin))
+             || (stoi(stringDate.substr(0,4)) == stoi(yearBegin) && stoi(stringDate.substr(4,2)) > stoi(monthBegin))
+             || (stoi(stringDate.substr(0,4)) == stoi(yearEnd) && stoi(stringDate.substr(4,2)) == stoi(monthEnd)
+             && stoi(stringDate.substr(6,2)) <= stoi(dayEnd))
+             || (stoi(stringDate.substr(0,4)) == stoi(yearEnd) && stoi(stringDate.substr(4,2)) < stoi(monthEnd))
+             || (stoi(stringDate.substr(0,4)) > stoi(yearBegin) && stoi(stringDate.substr(0,4)) < stoi(yearEnd)))
 
              incomesTemp.push_back(incomes[i]);
+             date =0;
+             stringDate="";
      }
 
      sort(incomesTemp.begin(), incomesTemp.end());

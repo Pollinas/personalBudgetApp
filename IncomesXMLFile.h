@@ -1,8 +1,8 @@
 #ifndef INCOMESXMLFILE_H
 #define INCOMESXMLFILE_H
 #include <iostream>
-#include<vector>
-#include<cstdlib>
+#include <vector>
+#include <cstdlib>
 #include <string.h>
 #include "Markup.h"
 #include "Income.h"

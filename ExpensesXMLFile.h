@@ -1,13 +1,13 @@
 #ifndef EXPENSESXMLFILE_H
 #define EXPENSESXMLFILE_H
 #include <iostream>
-#include<vector>
-#include<cstdlib>
-#include<string.h>
+#include <vector>
+#include <cstdlib>
+#include <string.h>
 #include "Markup.h"
-#include"Expense.h"
+#include "Expense.h"
 #include "AuxiliaryMethods.h"
-#include"XMLFile.h"
+#include "XMLFile.h"
 
 using namespace std;
 

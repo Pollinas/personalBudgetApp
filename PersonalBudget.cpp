@@ -217,20 +217,23 @@ void PersonalBudget::displayBalanceFromSelectedTime()
     {
         string dateBegin = "";
         string dateEnd = "";
+        string temp = "";
 
         cout << "Insert beginning date in yyyy-mm-dd format. " << endl;
-        string temp = AuxiliaryMethods::readLine();
+        temp = AuxiliaryMethods::readLine();
 
         while (AuxiliaryMethods::checkDateCorrectness(temp) == false)
         {
             cout << "Incorrect date or date format. Insert date in yyyy-mm-dd format. " << endl;
-            string temp = AuxiliaryMethods::readLine();
+            temp = AuxiliaryMethods::readLine();
             if (AuxiliaryMethods::checkDateCorrectness(temp))
-                break;
+            {
+                 dateBegin = temp;
+                 break;
+            }
         }
 
-         dateBegin = temp;
-         temp = "";
+        temp ="";
 
         cout << "Insert ending date in yyyy-mm-dd format. " << endl;
         temp = AuxiliaryMethods::readLine();
@@ -238,11 +241,13 @@ void PersonalBudget::displayBalanceFromSelectedTime()
          while (AuxiliaryMethods::checkDateCorrectness(temp) == false)
         {
             cout << "Incorrect date or date format. Insert date in yyyy-mm-dd format. " << endl;
-            string temp = AuxiliaryMethods::readLine();
+            temp = AuxiliaryMethods::readLine();
             if (AuxiliaryMethods::checkDateCorrectness(temp))
-                break;
+            {
+                 dateEnd = temp;
+                 break;
+            }
         }
-         dateEnd = temp;
 
 
         double incomesSum = 0.0;

@@ -4,6 +4,8 @@
 #include <vector>
 #include <cstdlib>
 #include <algorithm>
+#include <string>
+
 #include "Expense.h"
 #include "ExpensesXMLFile.h"
 #include "AuxiliaryMethods.h"
