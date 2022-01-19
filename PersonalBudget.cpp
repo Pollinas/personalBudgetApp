@@ -181,7 +181,13 @@ void PersonalBudget::displayThisMonthBalance()
         cout <<endl;
         expensesSum = expenseManager->displayThisMonthExpenses();
         cout << endl;
-        cout << endl <<  "This month balance: " << (incomesSum-expensesSum) << endl;
+
+        double balance = incomesSum-expensesSum;
+        string balanceTemp = to_string(balance);
+        string delimiter = ".";
+        string stringBalance = balanceTemp.substr(0,(balanceTemp.find(delimiter)+3));
+
+        cout << endl <<  "This month balance: " << stringBalance << endl;
         system("pause");
     }
     else
@@ -205,7 +211,13 @@ void PersonalBudget::displayLastMonthBalance()
         cout << endl;
         expensesSum = expenseManager->displayLastMonthExpenseBalance();
         cout << endl;
-        cout << endl << "Last month balance: " << (incomesSum-expensesSum) << endl;
+
+        double balance = incomesSum-expensesSum;
+        string balanceTemp = to_string(balance);
+        string delimiter = ".";
+        string stringBalance = balanceTemp.substr(0,(balanceTemp.find(delimiter)+3));
+
+        cout << endl << "Last month balance: " << stringBalance << endl;
         system("pause");
     }
     else
@@ -297,13 +309,18 @@ void PersonalBudget::displayBalanceFromSelectedTime()
 
         double incomesSum = 0.0;
         double expensesSum = 0.0;
+        double balance = incomesSum-expensesSum;
+        string balanceTemp = to_string(balance);
+        string delimiter = ".";
+        string stringBalance = balanceTemp.substr(0,(balanceTemp.find(delimiter)+3));
+
 
         cout<<endl;
         incomesSum = incomeManager-> displayIncomeBalanceFromSelectedDates(dateBegin, dateEnd);
         cout << endl;
         expensesSum = expenseManager-> displayExpenseBalanceFromSelectedDates(dateBegin, dateEnd);
         cout << endl;
-        cout << endl << "Balance from " << dateBegin << " to " << dateEnd << " : " << (incomesSum-expensesSum) << endl;
+        cout << endl << "Balance from " << dateBegin << " to " << dateEnd << " : " << stringBalance << endl;
         system("pause");
     }
     else

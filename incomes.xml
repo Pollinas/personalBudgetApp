@@ -7,4 +7,11 @@
 <Item>rental</Item>
 <Amount>500.99</Amount>
 </Income>
+<Income>
+<IncomeID>2</IncomeID>
+<UserID>1</UserID>
+<Date>2022-01-19</Date>
+<Item>income</Item>
+<Amount>50.77</Amount>
+</Income>
 </Incomes>

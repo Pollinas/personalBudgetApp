@@ -93,18 +93,27 @@ double ExpenseManager::displayThisMonthExpenses()
 
      sort(thisMonthExpenses.begin(), thisMonthExpenses.end());
      totalExpense = calculateTotalExpense(thisMonthExpenses);
+     string tempExpense = to_string(totalExpense);
+     string delimiter = ".";
+     string stringTotalExpense = tempExpense.substr(0,(tempExpense.find(delimiter)+3));
+
 
      for (int j =0; j<thisMonthExpenses.size(); j++)
      {
          int date = thisMonthExpenses[j].getDate();
          string stringDate = to_string(date);
 
+         double amount = thisMonthExpenses[j].getAmount();
+         string temp = to_string(amount);
+         string delimiter = ".";
+         string stringAmount = temp.substr(0,(temp.find(delimiter)+3));
+
          cout << AuxiliaryMethods::dateToDispalyFormat(stringDate) << " ";
          cout << thisMonthExpenses[j].getItem() << " ";
-         cout << thisMonthExpenses[j].getAmount() << endl;
+         cout << stringAmount << endl;
      }
 
-     cout << "Total expense from this month: " << totalExpense << endl;
+     cout << "Total expense from this month: " << stringTotalExpense << endl;
 
      return totalExpense;
 }
@@ -146,18 +155,26 @@ double ExpenseManager::displayLastMonthExpenseBalance()
 
      sort(lastMonthExpenses.begin(), lastMonthExpenses.end());
      totalExpense = calculateTotalExpense(lastMonthExpenses);
+     string tempExpense = to_string(totalExpense);
+     string delimiter = ".";
+     string stringTotalExpense = tempExpense.substr(0,(tempExpense.find(delimiter)+3));
+
 
      for (int j =0; j<lastMonthExpenses.size(); j++)
      {
         int date = lastMonthExpenses[j].getDate();
          string stringDate = to_string(date);
+         double amount = lastMonthExpenses[j].getAmount();
+         string temp = to_string(amount);
+         string delimiter = ".";
+         string stringAmount = temp.substr(0,(temp.find(delimiter)+3));
 
          cout << AuxiliaryMethods::dateToDispalyFormat(stringDate) << " " ;
          cout << lastMonthExpenses[j].getItem() << " ";
-         cout << lastMonthExpenses[j].getAmount() << endl;
+         cout << stringAmount << endl;
      }
 
-     cout << "Total expense from last month: " << totalExpense << endl;
+     cout << "Total expense from last month: " << stringTotalExpense << endl;
 
      return totalExpense;
 }
@@ -198,19 +215,27 @@ double ExpenseManager::displayExpenseBalanceFromSelectedDates(string dateBegin,s
 
     sort(expensesTemp.begin(), expensesTemp.end());
      totalExpense = calculateTotalExpense(expensesTemp);
+     string tempExpense = to_string(totalExpense);
+     string delimiter = ".";
+     string stringTotalExpense = tempExpense.substr(0,(tempExpense.find(delimiter)+3));
+
 
      for (int j =0; j < expensesTemp.size(); j++)
      {
 
         int date = expensesTemp[j].getDate();
-         string stringDate = to_string(date);
+        string stringDate = to_string(date);
+        double amount = expensesTemp[j].getAmount();
+        string temp = to_string(amount);
+        string delimiter = ".";
+        string stringAmount = temp.substr(0,(temp.find(delimiter)+3));
 
          cout << AuxiliaryMethods::dateToDispalyFormat(stringDate) << " ";
          cout << expensesTemp[j].getItem() << " ";
-         cout << expensesTemp[j].getAmount() << endl;
+         cout << stringAmount << endl;
      }
 
-     cout << "Total expense from selected dates: " << totalExpense << endl;
+     cout << "Total expense from selected dates: " << stringTotalExpense << endl;
 
      return totalExpense;
 }
