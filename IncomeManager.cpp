@@ -105,20 +105,29 @@ double IncomeManager::displayThisMonthIncomes()
 
      sort(thisMonthIncomes.begin(), thisMonthIncomes.end());
      totalIncome = calculateTotalIncome(thisMonthIncomes);
+     string tempIncome = to_string(totalIncome);
+     string delimiter = ".";
+     string stringTotalIncome = tempIncome.substr(0,(tempIncome.find(delimiter)+3));
+
 
      for (int j =0; j<thisMonthIncomes.size(); j++)
      {
          int date = thisMonthIncomes[j].getDate();
          string stringDate = to_string(date);
+         double amount = thisMonthIncomes[j].getAmount();
+         string temp = to_string(amount);
+         string delimiter = ".";
+         string stringAmount = temp.substr(0,(temp.find(delimiter)+3));
 
          cout << AuxiliaryMethods::dateToDispalyFormat(stringDate) << " ";
          cout << thisMonthIncomes[j].getItem() << " ";
-         cout << thisMonthIncomes[j].getAmount() << endl;
+         cout << stringAmount << endl;
      }
 
-     cout << "Total income from this month: " << totalIncome << endl;
+     cout << "Total income from this month: " << stringTotalIncome << endl;
 
      return totalIncome;
+
 }
 
 double IncomeManager::displayLastMonthIncomeBalance()
@@ -157,17 +166,25 @@ double IncomeManager::displayLastMonthIncomeBalance()
      sort(lastMonthIncomes.begin(), lastMonthIncomes.end());
      totalIncome = calculateTotalIncome(lastMonthIncomes);
 
+     string tempIncome = to_string(totalIncome);
+     string delimiter = ".";
+     string stringTotalIncome = tempIncome.substr(0,(tempIncome.find(delimiter)+3));
+
      for (int j =0; j<lastMonthIncomes.size(); j++)
      {
         int date = lastMonthIncomes[j].getDate();
          string stringDate = to_string(date);
+         double amount = lastMonthIncomes[j].getAmount();
+         string temp = to_string(amount);
+         string delimiter = ".";
+         string stringAmount = temp.substr(0,(temp.find(delimiter)+3));
 
          cout << AuxiliaryMethods::dateToDispalyFormat(stringDate) << " ";
          cout << lastMonthIncomes[j].getItem() << " ";
-         cout << lastMonthIncomes[j].getAmount() << endl;
+         cout << stringAmount << endl;
      }
 
-     cout << "Total income from last month: " << totalIncome << endl;
+     cout << "Total income from last month: " << stringTotalIncome << endl;
 
      return totalIncome;
 
@@ -209,18 +226,27 @@ double IncomeManager::displayIncomeBalanceFromSelectedDates(string dateBegin, st
 
      sort(incomesTemp.begin(), incomesTemp.end());
      totalIncome = calculateTotalIncome(incomesTemp);
+     string tempIncome = to_string(totalIncome);
+     string delimiter = ".";
+     string stringTotalIncome = tempIncome.substr(0,(tempIncome.find(delimiter)+3));
+
+
 
      for (int j =0; j<incomesTemp.size(); j++)
      {
          int date = incomesTemp[j].getDate();
          string stringDate = to_string(date);
+         double amount = incomesTemp[j].getAmount();
+         string temp = to_string(amount);
+         string delimiter = ".";
+         string stringAmount = temp.substr(0,(temp.find(delimiter)+3));
 
          cout << AuxiliaryMethods::dateToDispalyFormat(stringDate) << " " ;
          cout << incomesTemp[j].getItem() << " ";
-         cout << incomesTemp[j].getAmount() << endl;
+         cout << stringAmount << endl;
      }
 
-     cout << "Total income from selected dates: " << totalIncome << endl;
+     cout << "Total income from selected dates: " << stringTotalIncome << endl;
 
      return totalIncome;
 }

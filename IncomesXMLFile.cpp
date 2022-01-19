@@ -6,8 +6,9 @@ void IncomesXMLFile::addIncomeToXMLFile(Income income)
     string userID = AuxiliaryMethods::intToString(income.getUserID());
     string date = AuxiliaryMethods::dateToDispalyFormat(to_string(income.getDate()));
     string item = income.getItem();
-    string amount = to_string(income.getAmount());
-    amount.erase ( amount.find_last_not_of('0') + 1, string::npos );
+    string temp = to_string(income.getAmount());
+    string delimiter = ".";
+    string amount = temp.substr(0,(temp.find(delimiter)+3));
 
     CMarkup xml;
 
