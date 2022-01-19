@@ -264,6 +264,36 @@ void PersonalBudget::displayBalanceFromSelectedTime()
             }
         }
 
+        temp = "";
+
+        while (stoi(dateEnd) < stoi(dateBegin))
+        {
+            dateEnd = "";
+            cout << "Error. The ending date cannot be earlier than the beginning date." << endl;
+            cout << "Insert ending date in yyyy-mm-dd format. " << endl;
+            temp = AuxiliaryMethods::readLine();
+
+            if (AuxiliaryMethods::checkDateCorrectness(temp))
+            {
+               dateEnd = temp;
+               if (stoi(dateEnd) >= stoi(dateBegin))
+                    break;
+            }
+
+            while (AuxiliaryMethods::checkDateCorrectness(temp) == false)
+           {
+            cout << "Incorrect date or date format. Insert date in yyyy-mm-dd format. " << endl;
+            temp = AuxiliaryMethods::readLine();
+
+                if (AuxiliaryMethods::checkDateCorrectness(temp))
+                {
+                 dateEnd = temp;
+                 if (stoi(dateEnd) >= stoi(dateBegin))
+                    break;
+                }
+           }
+        }
+
 
         double incomesSum = 0.0;
         double expensesSum = 0.0;

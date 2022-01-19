@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Incomes>
+<Income>
+<IncomeID>1</IncomeID>
+<UserID>1</UserID>
+<Date>2022-01-18</Date>
+<Item>rental</Item>
+<Amount>500.99</Amount>
+</Income>
+</Incomes>

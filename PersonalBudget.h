@@ -1,6 +1,7 @@
 #ifndef PERSONALBUDGET_H
 #define PERSONALBUDGET_H
 #include <iostream>
+#include <string>
 
 #include"UserManager.h"
 #include"IncomeManager.h"
